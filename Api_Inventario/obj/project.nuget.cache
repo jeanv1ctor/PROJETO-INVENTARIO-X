@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "hwolmTGv4Kt+pvj/5SeXAbMTKlq+ICnEeS62vE7WVxWa8Sc0Jjv3JwlEMkDKtkv2ZoLDireJmOC0eVb1QgtLIQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jean2\\OneDrive\\Área de Trabalho\\teste balta\\Api_Inventario\\Api_Inventario\\Api_Inventario.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jean2\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\jean2\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\jean2\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "C:\\Users\\jean2\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "C:\\Users\\jean2\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "C:\\Users\\jean2\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,6 +1,15 @@
-﻿namespace Api_Inventario.Data
+﻿using Microsoft.EntityFrameworkCore;
+using Api_Inventario.Models;
+
+namespace Api_Inventario.Data
 {
-    public class AppDbContext
+    public class AppDbContext : DbContext
     {
+
+        public DbSet<ItemModel> Items { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+            => options.UseSqlite("DataSource=app.db;Cache=Shared");
+
     }
 }

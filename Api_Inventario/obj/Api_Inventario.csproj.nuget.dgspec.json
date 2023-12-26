@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jean2\\OneDrive\\Área de Trabalho\\teste balta\\Api_Inventario\\Api_Inventario\\Api_Inventario.csproj": {}
+    "C:\\Users\\PC-TI02\\Desktop\\API INVENTARIO\\Api_Inventario\\Api_Inventario.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jean2\\OneDrive\\Área de Trabalho\\teste balta\\Api_Inventario\\Api_Inventario\\Api_Inventario.csproj": {
+    "C:\\Users\\PC-TI02\\Desktop\\API INVENTARIO\\Api_Inventario\\Api_Inventario.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jean2\\OneDrive\\Área de Trabalho\\teste balta\\Api_Inventario\\Api_Inventario\\Api_Inventario.csproj",
+        "projectUniqueName": "C:\\Users\\PC-TI02\\Desktop\\API INVENTARIO\\Api_Inventario\\Api_Inventario.csproj",
         "projectName": "Api_Inventario",
-        "projectPath": "C:\\Users\\jean2\\OneDrive\\Área de Trabalho\\teste balta\\Api_Inventario\\Api_Inventario\\Api_Inventario.csproj",
-        "packagesPath": "C:\\Users\\jean2\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jean2\\OneDrive\\Área de Trabalho\\teste balta\\Api_Inventario\\Api_Inventario\\obj\\",
+        "projectPath": "C:\\Users\\PC-TI02\\Desktop\\API INVENTARIO\\Api_Inventario\\Api_Inventario.csproj",
+        "packagesPath": "C:\\Users\\PC-TI02\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC-TI02\\Desktop\\API INVENTARIO\\Api_Inventario\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jean2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC-TI02\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,24 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.Data.Sqlite.Core": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite.Core": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"
@@ -64,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

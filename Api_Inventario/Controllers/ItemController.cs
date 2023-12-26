@@ -5,6 +5,7 @@ using Api_Inventario.Models;
 namespace Api_Inventario;
 
 [ApiController]
+[Route("v1/")]
 public class ItemController : ControllerBase
 {
     [HttpGet("item/")]
@@ -54,7 +55,7 @@ public class ItemController : ControllerBase
         return Ok(model);
     }
 
-    [HttpDelete("/item/{id:int}")]
+    [HttpDelete("item/{id:int}")]
     public IActionResult Delete([FromRoute] int id, [FromServices] AppDbContext context)
     {
         var model = context.Items.FirstOrDefault(x => x.Id == id);

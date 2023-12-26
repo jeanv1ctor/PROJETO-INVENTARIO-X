@@ -9,9 +9,7 @@ namespace Api_Inventario.Models
         public int Id { get; set; }
 
         [Required]
-        [MinLength(1, ErrorMessage = "Quantidade minima de caracteres do patrimonio = 1")]
-        [MaxLength(20, ErrorMessage = "Quantidade maxima de caracteres do patrimonio = 20")]
-        public BigInteger CodPatrimonio {get; set; }
+        public int CodPatrimonio {get; set; }
 
         [Required]
         [MinLength(5, ErrorMessage = "Quantidade minima de caracteres para o nome do item = 5")]

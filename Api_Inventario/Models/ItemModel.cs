@@ -13,7 +13,7 @@ namespace Api_Inventario.Models
 
         [Required]
         [MinLength(5, ErrorMessage = "Quantidade minima de caracteres para o nome do item = 5")]
-        [MaxLength(30, ErrorMessage = "Quantidade maxima de caracteres  para o nome do item  = 20")]
+        [MaxLength(30, ErrorMessage = "Quantidade maxima de caracteres  para o nome do item  = 30")]
         public string? Nome { get; set; }
 
         [Required]

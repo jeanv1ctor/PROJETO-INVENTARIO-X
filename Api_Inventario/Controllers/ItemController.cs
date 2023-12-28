@@ -1,6 +1,7 @@
 ﻿using Api_Inventario.Data;
 using Microsoft.AspNetCore.Mvc;
 using Api_Inventario.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Api_Inventario;
 
@@ -9,66 +10,108 @@ namespace Api_Inventario;
 public class ItemController : ControllerBase
 {
     [HttpGet("item/")]
-    public IActionResult Get([FromServices] AppDbContext context)
+    public async Task<IActionResult> Get([FromServices] AppDbContext context)
     {
-       
-       return Ok(context.Items.ToList());
+        try
+        {
+            var items = await context.Items.ToListAsync();
+            return Ok(items);
+        }
+
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+
     }
 
     [HttpGet("item/{id:int}")]
-    public IActionResult GetById([FromRoute] int id, [FromServices] AppDbContext context)
+    public async Task<IActionResult> GetById([FromRoute] int id, [FromServices] AppDbContext context)
     {
-        var item = context.Items.FirstOrDefault(x => x.Id == id);
-
-        if (item == null)
+        try
         {
-            return NotFound();
+            var item = await context.Items.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (item == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(item);
         }
 
-        return Ok(item);
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
     [HttpPost("item/")]
-    public IActionResult Post([FromBody] ItemModel item, [FromServices] AppDbContext context) 
+    public async Task<IActionResult> Post([FromBody] ItemModel item, [FromServices] AppDbContext context) 
     {
-        context.Items.Add(item);
-        context.SaveChanges();
+       try
+        {
+            await context.Items.AddAsync(item);
+            await context.SaveChangesAsync();
 
 
-        return Created($"/{item.Id}", item);
+            return Created($"/{item.Id}", item);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
 
     [HttpPut("item/{id:int}")]
-    public IActionResult Put([FromRoute] int id, [FromServices] AppDbContext context, [FromBody] ItemModel item)
+    public async Task<IActionResult> Put([FromRoute] int id, [FromServices] AppDbContext context, [FromBody] ItemModel item)
     {
-        var model = context.Items.FirstOrDefault(x => x.Id == id);
-
-        if (model == null)
+        try
         {
-            return NotFound();
+            var model = await context.Items.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (model == null)
+            {
+                return NotFound();
+            }
+
+            model.Quantidade = item.Quantidade;
+            context.Items.Update(model);
+
+            await context.SaveChangesAsync();
+
+            return Ok(model);
         }
 
-        model.Quantidade = item.Quantidade;
-        context.SaveChanges();
-
-        return Ok(model);
+        catch(Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
     [HttpDelete("item/{id:int}")]
-    public IActionResult Delete([FromRoute] int id, [FromServices] AppDbContext context)
+    public async Task<IActionResult> Delete([FromRoute] int id, [FromServices] AppDbContext context)
     {
-        var model = context.Items.FirstOrDefault(x => x.Id == id);
-
-        if (model == null)
+     try
         {
-            return NotFound();
+            var model = await context.Items.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (model == null)
+            {
+                return NotFound();
+            }
+
+            context.Items.Remove(model);
+            await context.SaveChangesAsync();
+
+
+            return Ok(model);
         }
 
-       context.Items.Remove(model);
-       context.SaveChanges();
-
-       
-        return Ok(model);
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Api_Inventario.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace Api_Inventario;
 
@@ -18,8 +19,10 @@ public class UserModel
     public string Email { get; set; }
 
     [Required]
-    public string Password { get; set; }
+    public string PasswordHash { get; set; }
 
     public DateTime CreatedAt { get; set; }
+
+    public IList<RoleModel> Roles { get; set; }
 
 }

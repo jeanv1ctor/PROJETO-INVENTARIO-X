@@ -10,7 +10,7 @@ namespace Api_Inventario;
 public class ItemController : ControllerBase
 {
     [HttpGet("item/")]
-    public async Task<IActionResult> Get([FromServices] AppDbContext context)
+    public async Task<IActionResult> GetItem([FromServices] AppDbContext context)
     {
         try
         {
@@ -26,7 +26,7 @@ public class ItemController : ControllerBase
     }
 
     [HttpGet("item/{id:int}")]
-    public async Task<IActionResult> GetById([FromRoute] int id, [FromServices] AppDbContext context)
+    public async Task<IActionResult> GetByIdItem([FromRoute] int id, [FromServices] AppDbContext context)
     {
         try
         {
@@ -47,7 +47,7 @@ public class ItemController : ControllerBase
     }
 
     [HttpPost("item/")]
-    public async Task<IActionResult> Post([FromBody] ItemModel item, [FromServices] AppDbContext context) 
+    public async Task<IActionResult> RegisterItem([FromBody] ItemModel item, [FromServices] AppDbContext context) 
     {
        try
         {
@@ -65,7 +65,7 @@ public class ItemController : ControllerBase
 
 
     [HttpPut("item/{id:int}")]
-    public async Task<IActionResult> Put([FromRoute] int id, [FromServices] AppDbContext context, [FromBody] ItemModel item)
+    public async Task<IActionResult> EditItem([FromRoute] int id, [FromServices] AppDbContext context, [FromBody] ItemModel item)
     {
         try
         {
@@ -91,7 +91,7 @@ public class ItemController : ControllerBase
     }
 
     [HttpDelete("item/{id:int}")]
-    public async Task<IActionResult> Delete([FromRoute] int id, [FromServices] AppDbContext context)
+    public async Task<IActionResult> DeleteItem([FromRoute] int id, [FromServices] AppDbContext context)
     {
      try
         {

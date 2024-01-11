@@ -54,10 +54,33 @@ public class AccountController : ControllerBase
     public async Task<IActionResult> Login( [FromBody] LoginViewModel model, [FromServices] AppDbContext context,
         [FromServices] TokenService tokenService)
     {
-        if(ModelState.IsValid)
+        if(!ModelState.IsValid)
         {
             return BadRequest();
         }
 
+        var user = await context.Users.AsNoTracking().Include(x => x.Roles).FirstOrDefaultAsync(x => x.Email == model.Email);
+
+        if(user == null)//validando email
+        {
+            return StatusCode(401, "usuario ou senha invalidos");
+        }
+
+        var password = await context.Users.AsNoTracking().Include(x => x.Roles).FirstOrDefaultAsync(x => x.PasswordHash == model.PasswordHash);
+
+        if (password.PasswordHash != model.PasswordHash)//validando senha
+        {
+            return StatusCode(401, "usuario ou senha invalidos");
+        }
+
+        try
+        {
+            var token = tokenService.GenerateToken(user);
+            return Ok(token);
+        }
+        catch(Exception ex)
+        {
+            return StatusCode(500, "falha interna");
+        }
     }
 }

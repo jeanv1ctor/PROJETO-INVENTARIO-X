@@ -5,7 +5,7 @@ Esse projeto se deu inicio para suprir a demanda de um sistema para inventariar 
 
 ## Stack utilizada
 
-**Front-end:** 
+**Front-end:** Angular
 
 **Back-end:** .Net versão 6.0
 

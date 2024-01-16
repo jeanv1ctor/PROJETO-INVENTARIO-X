@@ -2,18 +2,24 @@
 using Microsoft.AspNetCore.Mvc;
 using Api_Inventario.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Api_Inventario;
+
+
 
 [ApiController]
 [Route("v1/")]
 public class ItemController : ControllerBase
 {
+
+    [Authorize(Roles = "admin")]
+    [Authorize(Roles = "user")]
     [HttpGet("item/")]
     public async Task<IActionResult> GetItem([FromServices] AppDbContext context)
     {
         try
-        {
+        { 
             var items = await context.Items.ToListAsync();
             return Ok(items);
         }
@@ -25,6 +31,8 @@ public class ItemController : ControllerBase
 
     }
 
+    [Authorize(Roles = "admin")]
+    [Authorize(Roles = "user")]
     [HttpGet("item/{id:int}")]
     public async Task<IActionResult> GetByIdItem([FromRoute] int id, [FromServices] AppDbContext context)
     {
@@ -46,6 +54,8 @@ public class ItemController : ControllerBase
         }
     }
 
+    [Authorize(Roles = "admin")]
+    [Authorize(Roles = "user")]
     [HttpPost("item/")]
     public async Task<IActionResult> RegisterItem([FromBody] ItemModel item, [FromServices] AppDbContext context) 
     {
@@ -63,7 +73,8 @@ public class ItemController : ControllerBase
         }
     }
 
-
+    [Authorize(Roles = "admin")]
+    [Authorize(Roles = "user")]
     [HttpPut("item/{id:int}")]
     public async Task<IActionResult> EditItem([FromRoute] int id, [FromServices] AppDbContext context, [FromBody] ItemModel item)
     {
@@ -90,6 +101,7 @@ public class ItemController : ControllerBase
         }
     }
 
+    [Authorize(Roles = "admin")]
     [HttpDelete("item/{id:int}")]
     public async Task<IActionResult> DeleteItem([FromRoute] int id, [FromServices] AppDbContext context)
     {

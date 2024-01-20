@@ -28,7 +28,16 @@ export class HomeComponent implements OnInit{
 
       this.items = dados;
       this.itemGeral = dados;
-      console.log(this.items);
     });
+  }
+
+  Search(event : Event ){
+
+    const target = event.target as HTMLInputElement;
+    const value = target.value.toLocaleLowerCase();
+
+    this.items = this.itemGeral.filter(item => {
+      return item.nome.toLowerCase().includes(value);
+    })
   }
 }

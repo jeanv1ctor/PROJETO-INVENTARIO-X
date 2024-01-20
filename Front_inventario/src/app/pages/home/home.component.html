@@ -6,6 +6,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th>Cod Patrimonio</th>
             <th>Nome</th>
             <th>Modelo</th>
             <th>Descrição</th>
@@ -14,20 +15,21 @@
             <th></th>
             <th></th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
-</table>
 
-<tbody>
-    <tr>
-        <td></td>
-        <td>Impressora</td>
-        <td>Hp deskjet</td>
-        <td>impressora padrao</td>
-        <td>5</td>
-        <td><button>Adicionar</button></td>
-        <td><button>Diminuir</button></td>
-        <td><button>Editar</button></td>
-        <td><button>Excluir</button></td>
-    </tr>
-</tbody>
+    <tbody *ngFor="let item of items">
+        <tr>
+            <td>{{item.codPatrimonio}}</td>
+            <td>{{item.nome}}</td>
+            <td>{{item.modelo}}</td>
+            <td>{{item.descricao}}</td>
+            <td>{{item.quantidade}}</td>
+            <td><button>+</button></td>
+            <td><button>-</button></td>
+            <td><button>Editar</button></td>
+            <td><button>Excluir</button></td>
+        </tr>
+    </tbody>
+</table>

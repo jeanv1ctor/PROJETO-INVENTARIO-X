@@ -1,0 +1,31 @@
+
+<form [formGroup]= "itemForm" (ngSubmit)="submit()" #formDit="ngForm">
+    <div>
+        <label for="">Codigo de inventário:</label>
+        <input type="text" formControlName="codPatrimonio" placeholder="Insira o codigo de inventário do item" required>
+    </div>
+    <div class="input_box">
+        <label for="">Nome:</label>
+        <input type="text" formControlName="nome" placeholder="Insira o nome do item" required>
+    </div>
+    <div class="input_box">
+        <label for="">Modelo:</label>
+        <input type="text" formControlName="modelo" placeholder="Insira o modelo do item" required>
+    </div>
+
+    <div class="input_box">
+        <label for="">Descrição:</label>
+        <input type="text" formControlName="descicao" placeholder="Insira a descriçao do item" required>
+    </div>
+
+    
+    <div class="input_box">
+        <label for="">Quantidade:</label>
+        <input type="text" formControlName="quantidade" placeholder="Insira a descriçao do item" required>
+    </div>
+
+    <div class="btn-box">
+        <button type="submit">Cadastrar</button>
+        <button>Voltar</button>
+    </div>
+</form>

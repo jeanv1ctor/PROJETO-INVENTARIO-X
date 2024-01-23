@@ -3,19 +3,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ComponenteTesteComponent } from './componente-teste/componente-teste.component';
 import { HomeComponent } from './pages/home/home.component';
+import { CadastroItemComponent } from './pages/cadastro-item/cadastro-item.component';
+import { ItemFormComponent } from './componentes/item-form/item-form.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ComponenteTesteComponent,
-    HomeComponent
+    HomeComponent,
+    CadastroItemComponent,
+    ItemFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

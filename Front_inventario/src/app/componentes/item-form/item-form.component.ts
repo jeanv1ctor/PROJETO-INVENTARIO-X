@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Item } from 'src/app/Models/Item';
 
 @Component({
   selector: 'app-item-form',
@@ -8,6 +9,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class ItemFormComponent implements OnInit {
 
+  @Output() onSubmit = new EventEmitter<Item>();
+  
   itemForm!: FormGroup;
   constructor(){}
 
@@ -25,6 +28,8 @@ export class ItemFormComponent implements OnInit {
   }
 
   submit(){
-    
+    console.log(this.itemForm.value)
+
+    this.onSubmit.emit(this.itemForm.value);
   }
 }

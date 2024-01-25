@@ -16,4 +16,10 @@ export class ItemService {
     
     return this.http.get<Item[]>(this.apiUrl); 
   }
+
+  PostItem(item: Item): Observable<Item[]>{
+    
+    return this.http.post<Item[]>(`${this.apiUrl}`, item); 
+  }
+  
 }
